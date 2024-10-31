@@ -99,14 +99,33 @@
         .gallery-item {
             background: var(--dark-surface);
             border-radius: 10px;
+            border: none;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: all 0.3s;
             cursor: pointer;
             aspect-ratio: 1/1;
+            position: relative;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
+        .description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            color: var(--text);
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .description:hover {
+            opacity: 1;
         }
 
         .gallery-item img,
@@ -251,13 +270,13 @@
     <section id="threeD" class="section">
         <h2 class="section-title">3D Art</h2>
         <div class="gallery" id="art-gallery">
-            <div class="gallery-item">
-                <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg">
-                <div class="caption">
-                    import pickle, dill - sometimes what I do in the Garden matches what I do in python
+            <button id="openPopup" class="gallery-item">
+                <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg" style="height: 100%;">
+                <div class="description">import pickle, dill - sometimes what I do in the Garden matches what I do in
+                    python
                 </div>
-            </div>
-            <div class="gallery-item">
+            </button>
+            <!-- <div class="gallery-item">
                 <video controls>
                     <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -284,32 +303,32 @@
                     Your browser does not support the video tag.
                 </video>
                 <div class="caption">nodevember 2023 | chaotic cooking</div>
-            </div>
+            </div> -->
         </div>
     </section>
 
     <section id="addons" class="section">
         <h2 class="section-title">Blender Addons</h2>
         <div class="gallery" id="addons-gallery">
-            <div class="gallery-item">
+            <!-- <div class="gallery-item">
                 <video controls>
                     <source src="resources/addons/flow_map_painter.mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="caption">Flow Map Painter</div>
-            </div>
+            </div> -->
         </div>
     </section>
 
     <section id="garden" class="section">
         <h2 class="section-title">Garden Joy</h2>
         <div class="gallery" id="addons-gallery">
-            <div class="gallery-item">
+            <!-- <div class="gallery-item">
                 <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg">
                 <div class="caption">
                     import pickle, dill - sometimes what I do in the Garden matches what I do in python
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -320,38 +339,38 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-            const close = document.getElementsByClassName('close')[0];
+            // const modal = document.getElementById('modal');
+            // const modalContent = document.getElementById('modal-content');
+            // const close = document.getElementsByClassName('close')[0];
 
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    modal.style.display = 'flex';
-                    const mediaElement = item.querySelector('img, video');
-                    const clone = mediaElement.cloneNode(true);
-                    modalContent.innerHTML = '';
-                    modalContent.appendChild(clone);
+            // document.querySelectorAll('.gallery-item').forEach(item => {
+            //     item.addEventListener('click', () => {
+            //         modal.style.display = 'flex';
+            //         const mediaElement = item.querySelector('img, video');
+            //         const clone = mediaElement.cloneNode(true);
+            //         modalContent.innerHTML = '';
+            //         modalContent.appendChild(clone);
 
-                    if (clone.tagName === 'VIDEO') {
-                        clone.controls = true;
-                        clone.autoplay = true;
-                    }
-                });
-            });
+            //         if (clone.tagName === 'VIDEO') {
+            //             clone.controls = true;
+            //             clone.autoplay = true;
+            //         }
+            //     });
+            // });
 
-            close.addEventListener('click', () => {
-                modal.style.display = 'none';
-                const video = modalContent.querySelector('video');
-                if (video) video.pause();
-            });
+            // close.addEventListener('click', () => {
+            //     modal.style.display = 'none';
+            //     const video = modalContent.querySelector('video');
+            //     if (video) video.pause();
+            // });
 
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    const video = modalContent.querySelector('video');
-                    if (video) video.pause();
-                }
-            });
+            // window.addEventListener('click', (e) => {
+            //     if (e.target === modal) {
+            //         modal.style.display = 'none';
+            //         const video = modalContent.querySelector('video');
+            //         if (video) video.pause();
+            //     }
+            // });
 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
