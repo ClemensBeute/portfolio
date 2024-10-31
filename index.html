@@ -24,6 +24,7 @@
             background-color: var(--dark-bg);
             color: var(--text);
             line-height: 1.6;
+            margin: 0;
         }
 
         .navbar {
@@ -54,7 +55,7 @@
         }
 
         .hero {
-            height: 80vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,6 +75,7 @@
 
         .section {
             padding: 2rem 2rem;
+            margin: 0, auto;
         }
 
         .section-title {
@@ -83,10 +85,15 @@
         }
 
         .gallery {
+            margin: 0 auto;
+            padding: 2rem;
+            max-width: 1500px;
+            width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
-            padding: 1rem;
+            /* border: 2px solid #ffffff; */
         }
 
         .gallery-item {
@@ -96,7 +103,6 @@
             transition: transform 0.3s;
             cursor: pointer;
             aspect-ratio: 1/1;
-            max-width: 400px;
         }
 
         .gallery-item:hover {
@@ -244,6 +250,27 @@
                 <div class="caption">
                     import pickle, dill - sometimes what I do in the Garden matches what I do in python
                 </div>
+            </div>
+            <div class="gallery-item">
+                <video controls>
+                    <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">nodevember 2023 | chaotic cooking</div>
+            </div>
+            <div class="gallery-item">
+                <video controls>
+                    <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">nodevember 2023 | chaotic cooking</div>
+            </div>
+            <div class="gallery-item">
+                <video controls>
+                    <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">nodevember 2023 | chaotic cooking</div>
             </div>
             <div class="gallery-item">
                 <video controls>
