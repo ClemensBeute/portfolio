@@ -54,8 +54,8 @@
             color: var(--accent);
         }
 
-        .hero {
-            height: 60vh;
+        .landing {
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,12 +63,12 @@
             padding: 2rem;
         }
 
-        .hero h1 {
+        .landing h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
         }
 
-        .hero p {
+        .landing p {
             font-size: 1.5rem;
             color: var(--text-secondary);
         }
@@ -155,7 +155,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
+            .landing h1 {
                 font-size: 2.5rem;
             }
         }
@@ -199,14 +199,17 @@
 <body>
     <nav class="navbar">
         <div class="nav-links">
-            <a href="#home">Home</a>
+            <a href="#aboutme">About Me</a>
             <a href="#threeD">3D Art</a>
             <a href="#addons">Blender Addons</a>
+            <a href="#garden">Garden Joy</a>
         </div>
     </nav>
 
-    <section id="home" class="hero">
+    <section id="aboutme" class="landing">
         <div>
+            <img src="resources/profile_pic.jpg" alt="Clemens Beute"
+                style="border:#1e1e1e, solid, 3px; border-radius: 50%; width: 200px; margin-top: 1rem;">
             <h1>Clemens Beute</h1>
             <p>Hi, I am a 3D Artist and Addon Developer.</p>
             <p>My main interests are Blender, Geometry Nodes, Python, Electronics, 3D Printing and Gardening. </p>
@@ -220,16 +223,19 @@
                 </a>
                 <a href="https://www.blenderkit.com/clemensbeute" class="social-link" target="_blank"
                     rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.421l6.512 3.76v7.638l-6.512 3.76-6.512-3.76V8.181L12 4.421zm0 1.603L7.172 8.531v5.938L12 16.976l4.828-2.507V8.531L12 6.024z" />
+                    <svg viewBox="0 0 184.751 184.751">
+                        <path d="M0,92.375l46.188-80h92.378l46.185,80l-46.185,80H46.188L0,92.375z" />
                     </svg>
                 </a>
                 <a href="https://clemensbeute.gumroad.com/" class="social-link" target="_blank"
                     rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4l8 4v4c0 5.5-3.5 9-8 9s-8-3.5-8-9V8l8-4zm0 2L6 8.5V12c0 3.7 2.3 6 6 6s6-2.3 6-6V8.5L12 6z" />
+                    <svg viewBox="0 0 42.566441 42.152931">
+                        <defs id="defs1" />
+                        <g id="layer1" transform="translate(-119.41026,-88.887355)">
+                            <path
+                                d="m 130.84494,125.9871 c -11.11826,-6.16237 -9.74894,-26.528929 2.11696,-31.4868 6.48269,-2.708639 10.22634,-2.665138 16.24042,0.188629 3.96865,1.88324 7.93132,7.287031 8.23417,10.403091 0.0394,0.40519 0.16335,0.90282 -0.23716,0.92112 -1.87366,0.0855 -6.16126,0.0862 -8.43269,-0.0384 -1.04418,-0.0573 -0.8076,-1.31483 -1.01866,-2.17976 -1.60457,-6.575629 -12.55561,-4.293369 -15.55299,2.63082 -1.14277,2.63992 -1.43702,6.4426 -0.0986,8.81362 3.63534,6.43964 11.76549,8.33981 14.97656,2.33987 2.09557,-3.91564 -0.34631,-4.02981 -4.4711,-4.02981 -2.04379,0 -1.44155,-1.68946 -1.44155,-2.50696 0,-0.8258 3.88948,-0.81805 8.84414,-0.81805 h 8.91841 v 8.1752 8.17521 h -4.45921 -4.4592 v -2.33751 -2.33746 l -3.91645,3.08069 c -4.45968,3.50796 -10.06234,3.87786 -15.24313,1.00638 z"
+                                style="fill:%23000000;stroke-width:1.66196" id="path1-4" />
+                        </g>
                     </svg>
                 </a>
                 <a href="https://github.com/clemensbeute" class="social-link" target="_blank" rel="noopener noreferrer">
@@ -291,6 +297,18 @@
                     Your browser does not support the video tag.
                 </video>
                 <div class="caption">Flow Map Painter</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="garden" class="section">
+        <h2 class="section-title">Garden Joy</h2>
+        <div class="gallery" id="addons-gallery">
+            <div class="gallery-item">
+                <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg">
+                <div class="caption">
+                    import pickle, dill - sometimes what I do in the Garden matches what I do in python
+                </div>
             </div>
         </div>
     </section>
