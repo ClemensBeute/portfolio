@@ -114,13 +114,13 @@ body {
 
 .gallery {
     margin: 0 auto;
-    padding: 1%;
+    padding: 1vw;
     max-width: 1500px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); */
-    gap: 3%;
+    gap: 3vw;
     /* border: 2px solid #ffffff; */
 }
 
