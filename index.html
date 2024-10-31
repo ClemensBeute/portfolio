@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter-Light', sans-serif;
         }
 
         body {
@@ -116,10 +116,8 @@
             padding: 1rem;
             color: var(--text);
             background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            display: grid;
+            place-items: center;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -135,10 +133,43 @@
             object-fit: cover;
         }
 
-        .gallery-item .caption {
-            padding: 1rem;
-            color: var(--text-secondary);
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
         }
+
+        .popup {
+            position: relative;
+            /* margin: 30px;
+            height: calc(100% - 100px); */
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 1500px;
+            width: calc(100% - 4rem);
+            height: calc(100% - 4rem);
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .popup-content {
+            max-width: 400px;
+        }
+
 
         .modal {
             display: none;
@@ -225,6 +256,15 @@
         </div>
     </nav>
 
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <div class="popup-content" id="popupContent">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
     <section id="aboutme" class="landing">
         <div>
             <img src="resources/profile_pic.jpg" alt="Clemens Beute"
@@ -270,16 +310,22 @@
     <section id="threeD" class="section">
         <h2 class="section-title">3D Art</h2>
         <div class="gallery" id="art-gallery">
-            <button id="openPopup" class="gallery-item">
-                <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg" style="height: 100%;">
-                <div class="description">import pickle, dill - sometimes what I do in the Garden matches what I do in
-                    python
+            <button onclick="openPopup('./content/3d_art/chaotic_cooking.html')" class="gallery-item">
+                <!-- <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg" style="height: 100%;"> -->
+                <video controls style="height: 100%;">
+                    <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
+                </video>
+                <div class="description">
+                    <div>
+                        <h3>Nodevember 2023</h3>
+                        <h1>chaotic cooking</h1>
+                    </div>
+
                 </div>
             </button>
             <!-- <div class="gallery-item">
                 <video controls>
                     <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <div class="caption">nodevember 2023 | chaotic cooking</div>
             </div>
@@ -338,39 +384,45 @@
     </div>
 
     <script>
+        const popupOverlay = document.getElementById('popupOverlay');
+        const closePopupBtn = document.getElementById('closePopup');
+        const popupContent = document.getElementById('popupContent');
+
+        async function openPopup(filename) {
+            popupContent.innerHTML = '<p>Loading...</p>';
+            popupOverlay.style.display = 'block';
+
+            try {
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const content = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(content, 'text/html');
+                popupContent.innerHTML = doc.body.innerHTML;
+            } catch (error) {
+                console.error('Error loading popup content:', error);
+                popupContent.innerHTML = `
+                    <p>Error loading content. Please try again.</p>
+                    <p>Details: ${error.message}</p>
+                    <button onclick="openPopup('${filename}')">Retry</button>
+                `;
+            }
+        }
+
+        function closePopup() {
+            popupOverlay.style.display = 'none';
+        }
+
+        closePopupBtn.addEventListener('click', closePopup);
+        popupOverlay.addEventListener('click', function (event) {
+            if (event.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
-            // const modal = document.getElementById('modal');
-            // const modalContent = document.getElementById('modal-content');
-            // const close = document.getElementsByClassName('close')[0];
-
-            // document.querySelectorAll('.gallery-item').forEach(item => {
-            //     item.addEventListener('click', () => {
-            //         modal.style.display = 'flex';
-            //         const mediaElement = item.querySelector('img, video');
-            //         const clone = mediaElement.cloneNode(true);
-            //         modalContent.innerHTML = '';
-            //         modalContent.appendChild(clone);
-
-            //         if (clone.tagName === 'VIDEO') {
-            //             clone.controls = true;
-            //             clone.autoplay = true;
-            //         }
-            //     });
-            // });
-
-            // close.addEventListener('click', () => {
-            //     modal.style.display = 'none';
-            //     const video = modalContent.querySelector('video');
-            //     if (video) video.pause();
-            // });
-
-            // window.addEventListener('click', (e) => {
-            //     if (e.target === modal) {
-            //         modal.style.display = 'none';
-            //         const video = modalContent.querySelector('video');
-            //         if (video) video.pause();
-            //     }
-            // });
 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
