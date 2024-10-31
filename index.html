@@ -167,7 +167,7 @@
         }
 
         .popup-content {
-            max-width: 400px;
+            overflow-y: auto;
         }
 
 
@@ -204,11 +204,11 @@
             cursor: pointer;
         }
 
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             .landing h1 {
                 font-size: 2.5rem;
             }
-        }
+        } */
 
         .social-links {
             display: flex;
@@ -251,8 +251,8 @@
         <div class="nav-links">
             <a href="#aboutme">About Me</a>
             <a href="#threeD">3D Art</a>
-            <a href="#addons">Blender Addons</a>
-            <a href="#garden">Garden Joy</a>
+            <a href="#addons">Addons</a>
+            <a href="#garden">Garden</a>
         </div>
     </nav>
 
@@ -268,7 +268,7 @@
     <section id="aboutme" class="landing">
         <div>
             <img src="resources/profile_pic.jpg" alt="Clemens Beute"
-                style="border:#1e1e1e, solid, 3px; border-radius: 50%; width: 200px; margin-top: 1rem;">
+                style="border:#1e1e1e, solid, 3px; border-radius: 50%; width: 200px; margin-top: 50px;">
             <h1>Clemens Beute</h1>
             <p>Hi, I am a 3D Artist and Addon Developer.</p>
             <p>My main interests are Blender, Geometry Nodes, Python, Electronics, 3D Printing and Gardening. </p>
@@ -313,7 +313,7 @@
             <button onclick="openPopup('content/3d_art/chaotic_cooking.html')" class="gallery-item">
                 <!-- <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg" style="height: 100%;"> -->
                 <video controls style="height: 100%;">
-                    <source src="resources/3d_art/nodevember_2023_chaotic cooking.mp4" type="video/mp4">
+                    <source src="resources/3d_art/nodevember_2023_chaotic_cooking.mp4" type="video/mp4">
                 </video>
                 <div class="description">
                     <div>
@@ -354,7 +354,7 @@
     </section>
 
     <section id="addons" class="section">
-        <h2 class="section-title">Blender Addons</h2>
+        <h2 class="section-title">Addons</h2>
         <div class="gallery" id="addons-gallery">
             <!-- <div class="gallery-item">
                 <video controls>
@@ -367,7 +367,7 @@
     </section>
 
     <section id="garden" class="section">
-        <h2 class="section-title">Garden Joy</h2>
+        <h2 class="section-title">Garden</h2>
         <div class="gallery" id="addons-gallery">
             <!-- <div class="gallery-item">
                 <img alt="import pickle, dill" src="resources/garden/pickle_and_dill.jpg">
