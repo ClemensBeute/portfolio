@@ -262,10 +262,26 @@
                     <button onclick="openPopup('${filename}')">Retry</button>
                 `;
             }
+
+            // control some video sound
+            let vid = document.getElementById("river");
+            if (vid) {
+                vid.volume = 0.15;
+            }
         }
 
         function closePopup() {
             popupOverlay.style.display = 'none';
+
+            // Stop all video and audio elements
+            const mediaElements = popupContent.querySelectorAll('video, audio');
+            mediaElements.forEach(media => {
+                media.pause();
+                media.currentTime = 0;
+            });
+
+            // Clear the popup content
+            popupContent.innerHTML = '';
         }
 
         closePopupBtn.addEventListener('click', closePopup);
@@ -275,8 +291,8 @@
             }
         });
 
+        // jump to section
         document.addEventListener('DOMContentLoaded', () => {
-
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -285,7 +301,11 @@
                     });
                 });
             });
+
         });
+
+
+
     </script>
 </body>
 

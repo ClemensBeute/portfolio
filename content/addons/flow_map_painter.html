@@ -5,7 +5,10 @@
     Flow maps are really helpful in shaders, when you need directional information.
     You can use them for example to create a flow like appearance (like water, lava etc).
 </p>
-<p class="paragraph" style="margin-bottom: 10px;">
+<a class="link" href="https://clemensbeute.gumroad.com/l/heZDT">
+    You can get here on Gumroad
+</a>
+<p class="paragraph" style="margin-bottom: 10px; margin-top: 10px;">
     The river scene I build with some quixel assets and Geometry Nodes.
     Flow Map Painter was used to paint in the flow of the river.
     As you can see, by painting in some details in the flow map,
@@ -14,10 +17,19 @@
 <video controls autoplay loop class="video">
     <source src="resources/addons/flow_map_painter.mp4" type="video/mp4">
 </video>
-<video controls autoplay loop class="video">
+<video controls autoplay loop class="video" id="river">
     <source src="resources/addons/flow_map_painter_river_scene.mp4" type="video/mp4">
 </video>
 <br>
-<a class="link" href="https://clemensbeute.gumroad.com/l/heZDT">
-    You can get here on Gumroad
-</a>
+
+<p class="paragraph" style="margin-bottom: 10px; margin-top: 20px;">
+    Following is a shader exploration.
+    It shows that creating flow is not the only application of flow maps.
+    This is a fake hair shader. Each hair is composed out of many dots.
+    The hair dots are combed into the wanted direction with the flow map painter.
+    Afterward some noise is applied to get a animated wind effect.
+    So a more fitting naming for those maps would be direction maps.
+</p>
+<video controls autoplay loop class="video">
+    <source src="resources/addons/flow_map_painter_fake_shader_hair.mp4" type="video/mp4">
+</video>
