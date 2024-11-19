@@ -78,6 +78,7 @@
 
 .link {
     color: var(--text);
+    word-wrap: break-word;
 }
 
 .paragraph {
