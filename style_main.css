@@ -1,9 +1,15 @@
+@font-face {
+    font-family: "Inter-Light";
+    src: local("Inter-Light"),
+         url("/font/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  }
+
 :root {
     --dark-bg: #121212;
     --dark-surface: #1e1e1e;
-    --accent: #b0b0b0;
     --text: #ffffff;
     --text-secondary: #b0b0b0;
+    --accent: #6db31e;
 }
 
 * {
@@ -45,7 +51,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--text-secondary);
 }
 
 .landing {
@@ -87,7 +93,7 @@ body {
 
 .social-link:hover {
     transform: translateY(-5px);
-    background-color: var(--accent);
+    background-color: var(--text-secondary);
 }
 
 .social-link svg {
@@ -109,7 +115,7 @@ body {
 .section-title {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: var(--accent);
+    color: var(--text-secondary);
 }
 
 .gallery {
@@ -177,3 +183,68 @@ body {
     color: var(--text-secondary);
     font-weight: 100;
 }
+
+.footer {
+    background-color: var(--dark-surface);
+    padding: 1rem;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+.footer-content {
+    display: inline-block;
+    margin: 0 auto;
+}
+  
+.footer-content a {
+    margin-right: 20px;
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    word-wrap: break-word;
+    text-decoration: none;
+}
+
+.cookie-hinweis {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-surface);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: 'Inter-Light', sans-serif;
+    color: var(--text-secondary);
+  }
+  
+  .cookie-hinweis a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  
+  .cookie-hinweis a:hover {
+    color: var(--accent);
+  }
+
+  .cookie-hinweis button {
+    padding: 8px 16px; 
+    margin-top: 10px;
+    background-color: var(--dark-surface);
+    border-width: 1px; 
+    border-color: var(--text);
+    font-size: 14px; 
+    color: var(--text); 
+    cursor: pointer; 
+    border-radius: 2px;
+    font-family: 'Inter-Light', sans-serif;
+    font-weight: 500;
+    }
+  
+  .cookie-hinweis button:hover {
+    background-color: #121212;
+    /* color: var(--accent); */
+  }

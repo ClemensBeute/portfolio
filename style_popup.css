@@ -11,8 +11,6 @@
 
 .popup {
     position: relative;
-    /* margin: 30px;
-    height: calc(100% - 100px); */
     margin: 2rem auto;
     padding: 2rem;
     max-width: 1500px;
@@ -33,7 +31,6 @@
     cursor: pointer;
 }
 
-/* .popup-content {} */
 
 .modal {
     display: none;
@@ -79,6 +76,10 @@
 .link {
     color: var(--text);
     word-wrap: break-word;
+}
+
+.link:hover {
+    color: var(--accent);
 }
 
 .paragraph {
