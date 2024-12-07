@@ -55,7 +55,6 @@ body {
 }
 
 .landing {
-    /* height: 80vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,9 +124,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); */
     gap: 3vw;
-    /* border: 2px solid #ffffff; */
 }
 
 @media (max-width: 1000px) {
@@ -219,6 +216,7 @@ body {
     font-size: 14px;
     font-family: 'Inter-Light', sans-serif;
     color: var(--text-secondary);
+    z-index: 3000;
   }
   
   .cookie-hinweis a {
@@ -246,5 +244,4 @@ body {
   
   .cookie-hinweis button:hover {
     background-color: #121212;
-    /* color: var(--accent); */
   }
