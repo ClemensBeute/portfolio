@@ -338,15 +338,21 @@
   </div>
   
   <script>
+
+    console.log('cookieHinweisGezeigt: ' + sessionStorage.getItem('cookieHinweisGezeigt'));
+    
     // Cookie-Hinweis nur beim ersten Öffnen der Website anzeigen
-    if (!localStorage.getItem('cookieHinweisGezeigt')) {
-      document.getElementById('cookie-hinweis').style.display = 'block';
+    if (sessionStorage.getItem('cookieHinweisGezeigt') === null) {
+        document.getElementById('cookie-hinweis').style.display = 'block';
+    } else {
+        document.getElementById('cookie-hinweis').style.display = 'none';
     }
-  
+    
     // Cookie-Hinweis ausblenden, wenn der Benutzer auf "Akzeptieren" klickt
     document.getElementById('cookie-hinweis-akzeptieren').addEventListener('click', function() {
-      document.getElementById('cookie-hinweis').style.display = 'none';
-      localStorage.setItem('cookieHinweisGezeigt', true);
+        document.getElementById('cookie-hinweis').style.display = 'none';
+        sessionStorage.setItem('cookieHinweisGezeigt', true);
+        console.log('cookieHinweisGezeigt: ' + sessionStorage.getItem('cookieHinweisGezeigt'));
     });
   </script>
 
