@@ -334,7 +334,7 @@
     <p>Diese Website verwendet Cookies. Durch die Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p>
     <p>Mehr Informationen finden Sie in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.</p>
     <!-- <button id="cookie-hinweis-akzeptieren" class="cookie-hinweis button">Akzeptieren</button> -->
-    <button id="cookie-hinweis-akzeptieren">Akzeptieren</button>
+    <button id="cookie-hinweis-akzeptieren" onclick="accept_cookies()">Akzeptieren</button>
   </div>
   
   <script>
@@ -349,11 +349,16 @@
     }
     
     // Cookie-Hinweis ausblenden, wenn der Benutzer auf "Akzeptieren" klickt
-    document.getElementById('cookie-hinweis-akzeptieren').addEventListener('click', function() {
+    function accept_cookies() {
         document.getElementById('cookie-hinweis').style.display = 'none';
         sessionStorage.setItem('cookieHinweisGezeigt', true);
         console.log('cookieHinweisGezeigt: ' + sessionStorage.getItem('cookieHinweisGezeigt'));
-    });
+    }
+    // document.getElementById('cookie-hinweis-akzeptieren').addEventListener('click', function() {
+    //     document.getElementById('cookie-hinweis').style.display = 'none';
+    //     sessionStorage.setItem('cookieHinweisGezeigt', true);
+    //     console.log('cookieHinweisGezeigt: ' + sessionStorage.getItem('cookieHinweisGezeigt'));
+    // });
   </script>
 
 </html>
