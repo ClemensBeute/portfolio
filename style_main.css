@@ -1,8 +1,8 @@
 @font-face {
     font-family: "Inter-Light";
     src: local("Inter-Light"),
-         url("./font/Inter-VariableFont_opsz,wght.ttf") format("truetype");
-  }
+        url("./font/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}
 
 :root {
     --dark-bg: #121212;
@@ -95,7 +95,12 @@ body {
     background-color: var(--text-secondary);
 }
 
-.social-link svg {
+.social-link-img:hover {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+/* .social-link svg {
     width: 24px;
     height: 24px;
     fill: var(--text);
@@ -103,7 +108,7 @@ body {
 
 .social-link:hover svg {
     fill: var(--dark-bg);
-}
+} */
 
 
 .section {
@@ -187,13 +192,13 @@ body {
     text-align: center;
     z-index: 1000;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
+}
+
 .footer-content {
     display: inline-block;
     margin: 0 auto;
 }
-  
+
 .footer-content a {
     margin-right: 20px;
 }
@@ -217,31 +222,31 @@ body {
     font-family: 'Inter-Light', sans-serif;
     color: var(--text-secondary);
     z-index: 3000;
-  }
-  
-  .cookie-hinweis a {
+}
+
+.cookie-hinweis a {
     color: var(--text);
     text-decoration: none;
-  }
-  
-  .cookie-hinweis a:hover {
-    color: var(--accent);
-  }
+}
 
-  .cookie-hinweis button {
-    padding: 8px 16px; 
+.cookie-hinweis a:hover {
+    color: var(--accent);
+}
+
+.cookie-hinweis button {
+    padding: 8px 16px;
     margin-top: 10px;
     background-color: var(--dark-surface);
-    border-width: 1px; 
+    border-width: 1px;
     border-color: var(--text);
-    font-size: 14px; 
-    color: var(--text); 
-    cursor: pointer; 
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
     border-radius: 2px;
     font-family: 'Inter-Light', sans-serif;
     font-weight: 500;
-    }
-  
-  .cookie-hinweis button:hover {
+}
+
+.cookie-hinweis button:hover {
     background-color: #121212;
-  }
+}
