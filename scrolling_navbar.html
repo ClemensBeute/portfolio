@@ -8,14 +8,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 50px;
+            height: 3rem;
             background: rgb(40, 40, 40);
-            font-family: 'Arial', sans-serif;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
 
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 1rem;
 
-            /* backdrop-filter: blur(5px); */
             overflow-x: auto;
             /* Fixed width to make it scrollable */
             white-space: nowrap;
@@ -29,6 +30,14 @@
             /* Hide scrollbar for IE and Edge */
         }
 
+        /* Hide scrollbar for Webkit browsers */
+        .nav-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-container .active {
+            color: white;
+        }
 
         .nav-overlay {
             position: absolute;
@@ -40,37 +49,17 @@
             background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgb(0, 0, 0) 100%);
         }
 
-
-
-        /* Hide scrollbar for Webkit browsers */
-        .menu::-webkit-scrollbar {
-            display: none;
-        }
-
-        .menu-item {
+        .nav-item {
             position: relative;
-            padding: 15px 25px;
             color: rgb(171, 171, 171);
-            /* text-decoration: none; */
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            overflow: hidden;
             flex-shrink: 0;
-            /* Prevent items from shrinking */
             cursor: pointer;
+            user-select: none;
         }
 
-
-
-        .menu-item:hover {
+        .nav-item:hover {
             color: white;
         }
-
-        .menu-item:active {
-            color: greenyellow;
-        }
-
 
         .placeholder {
             width: 50vw;
@@ -80,14 +69,14 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: black;">
     <nav class="nav-container" id="menu">
         <div class="placeholder"></div>
-        <div class="menu-item" style="--i:1" onclick="scrollToItem(this)">About Me</div>
-        <div class="menu-item" style="--i:2" onclick="scrollToItem(this)">3D Art</div>
-        <div class="menu-item" style="--i:3" onclick="scrollToItem(this)">Add-ons</div>
-        <div class="menu-item" style="--i:4" onclick="scrollToItem(this)">Geometry Nodes</div>
-        <div class="menu-item" style="--i:5" onclick="scrollToItem(this)">Garden</div>
+        <div class="nav-item" style="--i:1" onclick="scrollToItem(this)">About Me</div>
+        <div class="nav-item" style="--i:2" onclick="scrollToItem(this)">3D Art</div>
+        <div class="nav-item" style="--i:3" onclick="scrollToItem(this)">Add-ons</div>
+        <div class="nav-item" style="--i:4" onclick="scrollToItem(this)">Geometry Nodes</div>
+        <div class="nav-item" style="--i:5" onclick="scrollToItem(this)">Garden</div>
         <div class="placeholder"></div>
     </nav>
     <div class="nav-overlay">
@@ -104,6 +93,10 @@
                 left: scrollLeft,
                 behavior: 'smooth'
             });
+
+            // set active item
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
         }
 
         // Scroll to first element on page load
@@ -111,6 +104,7 @@
             const firstItem = document.querySelector('.menu-item');
             scrollToItem(firstItem);
         });
+
     </script>
 </body>
 
