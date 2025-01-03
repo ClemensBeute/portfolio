@@ -27,7 +27,7 @@ body {
     margin: 0;
 }
 
-.navbar {
+/* .navbar {
     background-color: var(--dark-surface);
     padding: 1rem;
     position: fixed;
@@ -52,7 +52,7 @@ body {
 
 .nav-links a:hover {
     color: var(--text-secondary);
-}
+} */
 
 .landing {
     display: flex;

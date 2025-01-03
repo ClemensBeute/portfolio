@@ -72,11 +72,11 @@
 <body style="background-color: black;">
     <nav class="nav-container" id="menu">
         <div class="placeholder"></div>
-        <div class="nav-item" style="--i:1" onclick="scrollToItem(this)">About Me</div>
-        <div class="nav-item" style="--i:2" onclick="scrollToItem(this)">3D Art</div>
-        <div class="nav-item" style="--i:3" onclick="scrollToItem(this)">Add-ons</div>
-        <div class="nav-item" style="--i:4" onclick="scrollToItem(this)">Geometry Nodes</div>
-        <div class="nav-item" style="--i:5" onclick="scrollToItem(this)">Garden</div>
+        <div class="nav-item" onclick="scrollToItem(this)">About Me</div>
+        <div class="nav-item" onclick="scrollToItem(this)">3D Art</div>
+        <div class="nav-item" onclick="scrollToItem(this)">Add-ons</div>
+        <div class="nav-item" onclick="scrollToItem(this)">Geometry Nodes</div>
+        <div class="nav-item" onclick="scrollToItem(this)">Garden</div>
         <div class="placeholder"></div>
     </nav>
     <div class="nav-overlay">
@@ -101,7 +101,7 @@
 
         // Scroll to first element on page load
         window.addEventListener('load', () => {
-            const firstItem = document.querySelector('.menu-item');
+            const firstItem = document.querySelector('.nav-item');
             scrollToItem(firstItem);
         });
 
