@@ -24,11 +24,11 @@
 
     <nav class="nav-container" id="menu">
         <div class="placeholder"></div>
-        <div class="nav-item" onclick="scrollToItem(this)">About Me</div>
-        <div class="nav-item" onclick="scrollToItem(this)">3D Art</div>
-        <div class="nav-item" onclick="scrollToItem(this)">Add-ons</div>
-        <div class="nav-item" onclick="scrollToItem(this)">Geometry Nodes</div>
-        <div class="nav-item" onclick="scrollToItem(this)">Garden</div>
+        <div class="nav-item" id="nav About Me" onclick="scrollToItem(this)">About Me</div>
+        <div class="nav-item" id="nav 3D Art" onclick="scrollToItem(this)">3D Art</div>
+        <div class="nav-item" id="nav Add-ons" onclick="scrollToItem(this)">Add-ons</div>
+        <div class="nav-item" id="nav Geometry Nodes" onclick="scrollToItem(this)">Geometry Nodes</div>
+        <div class="nav-item" id="nav Garden" onclick="scrollToItem(this)">Garden</div>
         <div class="placeholder"></div>
     </nav>
     <div class="nav-overlay">
@@ -388,6 +388,37 @@
         });
 
 
+        // Add event listener to the window's scroll event
+        // window.addEventListener('scroll', () => {
+        //     // Get the current scroll position
+        //     const scrollPosition = window.scrollY;
+
+        //     // Get all the section elements
+        //     const sections = document.querySelectorAll('.section');
+
+        //     // Iterate over the sections and compare the scroll position with the section's position
+        //     sections.forEach(section => {
+        //         const sectionPosition = section.offsetTop;
+
+        //         console.log(section.scrollHeight)
+
+        //         // Check if the scroll position is within the section
+        //         if (scrollPosition >= sectionPosition && scrollPosition < sectionPosition + section.offsetHeight) {
+        //             // Set the active section
+        //             const activeSection = document.querySelector('.nav-item.active');
+        //             if (activeSection) {
+        //                 activeSection.classList.remove('active');
+        //             }
+
+        //             // const navItem = document.querySelector(`.nav-item:contains("${sectionId}")`);
+        //             console.log(document.getElementById(section.id));
+        //             const navItem = document.getElementById("nav " + section.id);
+        //             if (navItem) {
+        //                 navItem.classList.add('active');
+        //             }
+        //         }
+        //     });
+        // });
 
     </script>
 </body>
