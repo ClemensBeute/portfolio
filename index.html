@@ -24,11 +24,11 @@
 
     <nav class="nav-container" id="menu">
         <div class="placeholder"></div>
-        <div class="nav-item" id="nav About Me" onclick="scrollToItem(this)">About Me</div>
-        <div class="nav-item" id="nav 3D Art" onclick="scrollToItem(this)">3D Art</div>
-        <div class="nav-item" id="nav Add-ons" onclick="scrollToItem(this)">Add-ons</div>
-        <div class="nav-item" id="nav Geometry Nodes" onclick="scrollToItem(this)">Geometry Nodes</div>
-        <div class="nav-item" id="nav Garden" onclick="scrollToItem(this)">Garden</div>
+        <div class="nav-item" id="nav About Me" onclick="scrollMenuAndSection(this)">About Me</div>
+        <div class="nav-item" id="nav 3D Art" onclick="scrollMenuAndSection(this)">3D Art</div>
+        <div class="nav-item" id="nav Add-ons" onclick="scrollMenuAndSection(this)">Add-ons</div>
+        <div class="nav-item" id="nav Geometry Nodes" onclick="scrollMenuAndSection(this)">Geometry Nodes</div>
+        <div class="nav-item" id="nav Garden" onclick="scrollMenuAndSection(this)">Garden</div>
         <div class="placeholder"></div>
     </nav>
     <div class="nav-overlay">
@@ -340,7 +340,14 @@
 
         // });
 
-        function scrollToItem(element) {
+        // rem offsets
+        const remValue = 2;
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const offset = remValue * rootFontSize;
+        const offsetplus = offset + 10;
+
+
+        function scrollToMenu(element) {
             const menu = document.getElementById('menu');
             const elementRect = element.getBoundingClientRect();
             const menuRect = menu.getBoundingClientRect();
@@ -351,19 +358,18 @@
                 behavior: 'smooth'
             });
 
+            // set active item
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
 
-
+        function scrollToSection(element) {
             // Get the section ID from the item's text content
             const sectionId = element.textContent;
 
             // Scroll to the corresponding section
             const section = document.getElementById(sectionId);
             if (section) {
-                // Convert rem to pixels
-                const remValue = 2; // Adjust this value as needed (e.g., 6rem)
-                const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-                const offset = remValue * rootFontSize;
-
                 const sectionPosition = section.getBoundingClientRect().top;
                 const offsetPosition = sectionPosition + window.pageYOffset - offset;
 
@@ -373,52 +379,52 @@
                 });
             }
 
-
-
-            // set active item
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
         }
+
+        function scrollMenuAndSection(element) {
+            scrollToMenu(element);
+            scrollToSection(element);
+        }
+
+
 
         // Scroll to first element on page load
         window.addEventListener('load', () => {
             const firstItem = document.querySelector('.nav-item');
-            scrollToItem(firstItem);
+            scrollToMenu(firstItem);
+            scrollToSection(firstItem);
             firstItem.classList.add('active');
         });
 
 
         // Add event listener to the window's scroll event
-        // window.addEventListener('scroll', () => {
-        //     // Get the current scroll position
-        //     const scrollPosition = window.scrollY;
+        window.addEventListener('scroll', () => {
+            // Get the current scroll position
+            const scrollPosition = window.scrollY;
 
-        //     // Get all the section elements
-        //     const sections = document.querySelectorAll('.section');
+            // Get all the section elements
+            const sections = document.querySelectorAll('section');
 
-        //     // Iterate over the sections and compare the scroll position with the section's position
-        //     sections.forEach(section => {
-        //         const sectionPosition = section.offsetTop;
+            // Iterate over the sections and compare the scroll position with the section's position
+            sections.forEach(section => {
+                const sectionPosition = section.offsetTop;
 
-        //         console.log(section.scrollHeight)
+                // Check if the scroll position is within the section
+                if (scrollPosition >= sectionPosition - offsetplus && scrollPosition < sectionPosition + section.offsetHeight - offsetplus) {
+                    // Set the active section
+                    const activeSection = document.querySelector('.nav-item.active');
+                    if (activeSection) {
+                        activeSection.classList.remove('active');
+                    }
 
-        //         // Check if the scroll position is within the section
-        //         if (scrollPosition >= sectionPosition && scrollPosition < sectionPosition + section.offsetHeight) {
-        //             // Set the active section
-        //             const activeSection = document.querySelector('.nav-item.active');
-        //             if (activeSection) {
-        //                 activeSection.classList.remove('active');
-        //             }
-
-        //             // const navItem = document.querySelector(`.nav-item:contains("${sectionId}")`);
-        //             console.log(document.getElementById(section.id));
-        //             const navItem = document.getElementById("nav " + section.id);
-        //             if (navItem) {
-        //                 navItem.classList.add('active');
-        //             }
-        //         }
-        //     });
-        // });
+                    const navItem = document.getElementById("nav " + section.id);
+                    if (navItem) {
+                        // navItem.classList.add('active');
+                        scrollToMenu(navItem);
+                    }
+                }
+            });
+        });
 
     </script>
 </body>
