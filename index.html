@@ -12,16 +12,6 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar">
-        <div class="nav-links">
-            <a href="#aboutme">About Me</a>
-            <a href="#threeD">3D Art</a>
-            <a href="#addons">Add-ons</a>
-            <a href="#geometrynodes">Geometry Nodes</a>
-            <a href="#garden">Garden</a>
-        </div>
-    </nav> -->
-
     <nav class="nav-container" id="menu">
         <div class="placeholder"></div>
         <div class="nav-item" id="nav About Me" onclick="scrollMenuAndSection(this)">About Me</div>
@@ -267,9 +257,8 @@
 
     <!-- potential sections could also be electronics and games -->
 
-    <div class="modal" id="modal">
-        <span class="close">&times;</span>
-        <div class="modal-content" id="modal-content"></div>
+    <div style="height: 100vh;">
+        <!-- placeholder (to allow full scroll to sections on the bottom) -->
     </div>
 
     <script>
@@ -327,19 +316,7 @@
             }
         });
 
-        // jump to section
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        //         anchor.addEventListener('click', function (e) {
-        //             e.preventDefault();
-        //             document.querySelector(this.getAttribute('href')).scrollIntoView({
-        //                 behavior: 'smooth'
-        //             });
-        //         });
-        //     });
-
-        // });
-
+        
         // rem offsets
         const remValue = 2;
         const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
