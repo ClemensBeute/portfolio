@@ -10,7 +10,8 @@
     --dark-surface-transparent: #1e1e1ef1;
     --text: #ffffff;
     --text-secondary: #b0b0b0;
-    --accent: #6db31e;
+    /* --accent: #6db31e; */
+    --accent: #ec38b6;
 }
 
 * {
